@@ -48,7 +48,7 @@ class PiGPIOpin(object):
 		self._dutycycle = 0
 
 	def start(self, dutycycle):
-		self._dutycycle = dutycycle
+		self._dutycycle = 100 - dutycycle
 		self._logger.debug(u"PiGPIOpin: start() pin: %s" % self._pin)
 		if self._pigpiod.connected:
 			self._pigpiod.set_PWM_range(self._pin, 100) # emulate RPi.GPIO
